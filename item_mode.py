@@ -1,6 +1,7 @@
 from pico2d import *
 import game_framework
 import game_world
+import play_mode
 
 image = None
 
@@ -42,3 +43,6 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_i:
             game_framework.pop_mode()   # play_mode로 돌아감
+        else:
+            # 게임이 멈추지 않으므로 소년 조작 키는 계속 전달한다
+            play_mode.boy.handle_event(event)
