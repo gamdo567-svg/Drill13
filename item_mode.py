@@ -24,7 +24,8 @@ def resume():
 
 
 def update():
-    pass
+    # pause_mode와 달리 아이템 창이 떠 있는 동안에도 게임은 계속 진행된다
+    game_world.update()
 
 
 def render():
