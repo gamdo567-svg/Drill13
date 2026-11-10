@@ -4,11 +4,16 @@ import game_world
 
 
 class Ball:
-    image = None
+    images = {}
+    image_files = {
+        'SmallBall': 'ball21x21.png',
+        'BigBall': 'ball41x41.png',
+    }
 
-    def __init__(self, x, y, velocity):
-        if Ball.image is None:
-            Ball.image = load_image('ball21x21.png')
+    def __init__(self, x, y, velocity, kind='SmallBall'):
+        if kind not in Ball.images:
+            Ball.images[kind] = load_image(Ball.image_files[kind])
+        self.image = Ball.images[kind]
         self.x, self.y = x, y
         self.velocity = velocity
 
