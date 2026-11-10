@@ -1,5 +1,6 @@
 from pico2d import *
 import game_framework
+import game_world
 
 image = None
 
@@ -27,7 +28,10 @@ def update():
 
 
 def render():
-    pass
+    clear_canvas()
+    game_world.render()      # 뒤의 게임 화면을 그대로 그리고
+    image.draw(get_canvas_width() // 2, get_canvas_height() // 2)  # 그 위에 아이템 창
+    update_canvas()
 
 
 def handle_events():
