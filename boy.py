@@ -48,7 +48,9 @@ class Boy:
         self.frame = 0
 
     def fire_ball(self):
-        ball = Ball(self.x, self.y, self.face_dir * 10)
+        if self.item is None:     # 아이템이 없으면 공을 던질 수 없다
+            return
+        ball = Ball(self.x, self.y, self.face_dir * 10, self.item)
         game_world.add_oject(ball)
 
     def handle_event(self, event):
